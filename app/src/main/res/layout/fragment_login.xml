@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/brown"
+        android:text="Вход"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="e-mail"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/brown"
+        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="example@example.ru"
+        android:textColorHint="@color/brown"
+        android:paddingLeft="15dp"
+        android:background="@drawable/circle_edittext"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Пароль"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/brown"
+        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="******"
+        android:textColorHint="@color/brown"
+        android:paddingLeft="15dp"
+        android:background="@drawable/circle_edittext"
+        />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_button"
+        android:text="Войти"/>
+
+</LinearLayout>

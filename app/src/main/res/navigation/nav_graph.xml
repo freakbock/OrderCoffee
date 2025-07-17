@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.ordercoffee.presentation.register.RegisterFragment"
+        android:label="Регистрация">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.ordercoffee.presentation.login.LoginFragment"
+        android:label="Вход">
+        <action
+            android:id="@+id/action_loginFragment_to_locationListFragment"
+            app:destination="@id/locationListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/locationListFragment"
+        android:name="com.example.ordercoffee.presentation.location_list.LocationListFragment"
+        android:label="Кофейни">
+        <action
+            android:id="@+id/action_locationListFragment_to_menuFragment"
+            app:destination="@id/menuFragment" >
+            <argument
+                android:name="locationId"
+                app:argType="string" />
+        </action>
+
+        <action
+            android:id="@+id/action_locationListFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.ordercoffee.presentation.menu.MenuFragment"
+        android:label="Меню" >
+
+        <action
+            android:id="@+id/action_menuFragment_to_orderFragment"
+            app:destination="@id/registerFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.ordercoffee.presentation.location_map.MapFragment"
+        android:label="Карта" >
+
+        <action
+            android:id="@+id/action_mapFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+
+    </fragment>
+
+</navigation>

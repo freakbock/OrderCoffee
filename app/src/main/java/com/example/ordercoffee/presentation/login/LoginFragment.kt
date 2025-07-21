@@ -1,6 +1,7 @@
 package com.example.ordercoffee.presentation.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -9,7 +10,7 @@ import com.example.ordercoffee.R
 import com.example.ordercoffee.databinding.FragmentLoginBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class  LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModel()
@@ -30,6 +31,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
             result.onFailure { error ->
                 Toast.makeText(requireContext(), "Ошибка: ${error.message}", Toast.LENGTH_SHORT).show()
+                Log.d("Ошибка", error.message.toString())
             }
         }
 

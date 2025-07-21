@@ -13,7 +13,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class OrderFragment : Fragment(R.layout.fragment_order) {
 
     private lateinit var binding: FragmentOrderBinding
-    private val viewModel: OrderViewModel by viewModel()
+    private val viewModel: OrderViewModel by viewModel()  // Предположим, что он один для Menu и Order
+
     private val adapter = OrderAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,8 +27,9 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
             adapter.submitList(list)
         }
 
-        // Получаем выбранные товары из аргументов
         val selectedItems = arguments?.getParcelableArrayList<MenuItem>("selectedItems") ?: emptyList()
         viewModel.setItems(selectedItems)
+
+
     }
 }

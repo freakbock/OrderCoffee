@@ -10,7 +10,9 @@ import com.example.ordercoffee.R
 import com.example.ordercoffee.databinding.ItemMenuBinding
 import com.example.ordercoffee.domain.model.MenuItem
 
-class MenuAdapter : ListAdapter<MenuItem, MenuAdapter.MenuViewHolder>(DiffCallback) {
+class MenuAdapter(
+    private val onCountChanged: (List<MenuItem>) -> Unit // вызывается при изменении количества
+) : ListAdapter<MenuItem, MenuAdapter.MenuViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val binding = ItemMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -30,6 +32,26 @@ class MenuAdapter : ListAdapter<MenuItem, MenuAdapter.MenuViewHolder>(DiffCallba
                 placeholder(R.drawable.ic_launcher_foreground)
                 error(R.drawable.ic_launcher_foreground)
             }
+
+            // Установка текущего значения count
+            binding.count.text = item.count.toString()
+            binding.itemName.text = item.name
+            binding.itemPrice.text = item.price.toString()
+
+            binding.tvPlus.setOnClickListener {
+                item.count++
+                binding.count.text = item.count.toString()
+                onCountChanged(currentList)
+            }
+
+            binding.tvMinus.setOnClickListener {
+                if (item.count > 0) {
+                    item.count--
+                    binding.count.text = item.count.toString()
+                    onCountChanged(currentList)
+                }
+            }
+
             binding.executePendingBindings()
         }
     }

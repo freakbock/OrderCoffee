@@ -10,6 +10,6 @@ class OrderViewModel : ViewModel() {
     val items: LiveData<List<MenuItem>> = _items
 
     fun setItems(menuItems: List<MenuItem>) {
-        _items.value = menuItems
+        _items.value = menuItems.filter { it.count > 0 }
     }
 }

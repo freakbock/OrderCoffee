@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/lightBrown"
-    android:layout_margin="15dp">
+    android:layout_marginBottom="10dp">
 
     <TextView
         android:id="@+id/nameTextView"
